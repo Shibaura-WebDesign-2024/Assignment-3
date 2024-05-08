@@ -111,15 +111,17 @@ Figure 3 shows the way your navigation menu should look when you are finished.
 
 Open index.html Can you try to make a flexible online menu just like Figure 4?
 
-Hints
-You will need to use flex-wrap property on #menu container, and justify-content property. 
-The price buttons have to line up at the bottom of each menu item. This will be possible if each item is also a flex container.
+Hints:
+1.	You will need to use flex-wrap property on #menu container, and justify-content property. 
+2.	The price buttons have to line up at the bottom of each menu item. This will be possible if each item is also a flex container.
 Hint: you will need to turn the element that contain h2 and p into a nested flex container by setting its display to flex and specifying the direction as column so they continue to stack up vertically. 
-Instead of having lots of empty space inside the menu container, let’s make the items fill the available space. Because we want the items to be fully flexible, we can use the auto value for flex (the same as flex: 1 1 auto;). 
-Make the photos appear at the top of each menu item.  Because each section is a flex container, we can use the order property to move its items around. In this case, select the paragraphs with the “photo” class name and give it a value less than the default 0. This will make the photo display first in the line 
+3.	Instead of having lots of empty space inside the menu container, let’s make the items fill the available space. Because we want the items to be fully flexible, we can use the auto value for flex (the same as flex: 1 1 auto;). 
+4.	Make the photos appear at the top of each menu item.  Because each section is a flex container, we can use the order property to move its items around. In this case, select the paragraphs with the “photo” class name and give it a value less than the default 0. This will make the photo display first in the line
+```
 .photo {
 order: -1;
 }
+```
  Don’t forget to copy all files and save the file as “index.html” in the folder “part5”. Make sure you double check by accessing the link by yourself too.
 
  ![image](https://github.com/Shibaura-WebDesign-2024/Assignment-3/assets/167287319/3e97c98e-9646-427d-b054-40f0d16a7365)
@@ -135,7 +137,7 @@ Open index.html Figure 5 shows the grid layout of the final version of this page
 display: grid;
 }
 ```
-3. Figure 5 shows the row and column tracks required to accommodate the content in the desired layout. Start by defining the rows as specified in the sketch, using the grid-template-rows property. There should be six values, representing each of the six rows.
+2. Figure 5 shows the row and column tracks required to accommodate the content in the desired layout. Start by defining the rows as specified in the sketch, using the grid-template-rows property. There should be six values, representing each of the six rows.
 ```
 #layout {
 …
@@ -143,15 +145,23 @@ display: grid;
 grid-template-rows: 3em 20px 150px 300px 5em;
 }
 ```
-5. Do the same for the seven columns. Make the column grow and shrink with the available space by specified its width in fractional units (1fr). The remaining columns create 150px-wide cells for three images and 20px of space before them. You can use repeat () function to repeat the spaces and figure columns three times like this:
+3. Do the same for the seven columns. Make the column grow and shrink with the available space by specified its width in fractional units (1fr). The remaining columns create 150px-wide cells for three images and 20px of space before them. You can use repeat () function to repeat the spaces and figure columns three times like this:
+```
 grid-template-columns: 1fr repeat(3, 20px 150px);
-6. Finally, let’s assign names to the grid lines that border the grid area where the main content element should appear. The names give us some intuitive options for placing that item later. The main area starts at the third row track, so assign the name “mainstart” to the grid line between the second and third row track measurements:
+```
+4. Finally, let’s assign names to the grid lines that border the grid area where the main content element should appear. The names give us some intuitive options for placing that item later. The main area starts at the third row track, so assign the name “mainstart” to the grid line between the second and third row track measurements:
+```
 grid-template-rows: 3em 20px [main-start] 150px 300px 5em;
-7. The main area extends into the last row track, so assign the name “main-end” to the last grid line in the grid (after the last row track):
+```
+5. The main area extends into the last row track, so assign the name “main-end” to the last grid line in the grid (after the last row track):
+```
 grid-template-rows: 3em 20px [main-start] 150px 300px 5em [main-end];
-8. Do the same for the grid lines that mark the boundaries of the column track where the main content goes:
+```
+6. Do the same for the grid lines that mark the boundaries of the column track where the main content goes:
+```
 grid-template-columns: [main-start] 1fr [main-end] repeat(3, 20px 150px);
-9. Now, let’s place the items on the grid. Start by placing the nav element into the first row of the grid, using the four grid line properties:
+```
+7. Now, let’s place the items on the grid. Start by placing the nav element into the first row of the grid, using the four grid line properties:
 ```
 nav {
 grid-row-start: 1;
@@ -160,34 +170,43 @@ grid-column-start: 1;
 grid-column-end: 8; /* you could also use -1 */
 }
 ```
-Place the figures in their positions on the grid. Start by putting the third figure (#figC) in its place in the far-right column by using the shorthand grid-row and grid-column properties. It goes between the 3rd and 4th row grid lines and extends from the 7th to 8th column lines. For columns, instead of 7 and 8, use the negative value for the last line and span it one space to the left to get to the starting point:
-
+8. Place the figures in their positions on the grid. Start by putting the third figure (#figC) in its place in the far-right column by using the shorthand grid-row and grid-column properties. It goes between the 3rd and 4th row grid lines and extends from the 7th to 8th column lines. For columns, instead of 7 and 8, use the negative value for the last line and span it one space to the left to get to the starting point:
+```
 #figC {
 grid-row: 3 / 4;
 grid-column: span 1 / -1;
 }
-Now position the #figA and #figB elements by using the grid-area property with line values. Remember that the values go in the order top, left, bottom, right (counterclockwise around the area).
+```
+9. Now position the #figA and #figB elements by using the grid-area property with line values. Remember that the values go in the order top, left, bottom, right (counterclockwise around the area).
+```
 #figA {
 grid-area: 3 / 3 / 4 / 4;
 }
 #figB {
 grid-area: 3 / 5 / 4 / 6;
 }
-We gave the grid lines around the main area names, so let’s use them to place the main grid item:
+```
+10. We gave the grid lines around the main area names, so let’s use them to place the main grid item:
+```
 main {
 grid-row: main-start / main-end;
 grid-column: main-start / main-end;
 }
-Do you remember that when you name lines around an area *-start and *-end, it creates an implicitly named area *? Because we named the lines according to this syntax, we could also place the main element with grid-area like this:
+```
+11. Do you remember that when you name lines around an area *-start and *-end, it creates an implicitly named area *? Because we named the lines according to this syntax, we could also place the main element with grid-area like this:
+```
 main {
 grid-area: main;
 }
-Finally, we can put the footer into its place. It starts at the last row grid line and spans back one track. For columns, it starts at the third line and goes to the last. Here is one way to write those instructions. Can you come up with others that achieve the same result?
+```
+12. Finally, we can put the footer into its place. It starts at the last row grid line and spans back one track. For columns, it starts at the third line and goes to the last. Here is one way to write those instructions. Can you come up with others that achieve the same result?
+```
 footer {
 grid-row: 5 / 6;
 grid-column: 3 / -1;
 }
-Try opening your finished file in the browser. When the browser is stretched, everything may looks fine. However, when you narrow the browser window, the text in the main element overflows its cell. Can you try to fix this? (Hint: it is something to do with measurement of the row in grid)
+```
+13. Try opening your finished file in the browser. When the browser is stretched, everything may looks fine. However, when you narrow the browser window, the text in the main element overflows its cell. Can you try to fix this? (Hint: it is something to do with measurement of the row in grid)
 Don’t forget to copy all files and save the file as “index.html” in the folder “part6”. Make sure you double check by accessing the link by yourself too.
 
 ![image](https://github.com/Shibaura-WebDesign-2024/Assignment-3/assets/167287319/032f077c-9001-4b76-a176-53adff94619a)
@@ -196,14 +215,13 @@ Don’t forget to copy all files and save the file as “index.html” in the fo
 Figure 6: The finished version of part 6
 
 
-
-## Part 7
 ## A final touch using Grid
 
 Now you can use your new grid skills to give it a two-column layout that would be appropriate for tablets and larger screens for Black goose bakery page (The same files that you used for part 4). Figure 7 shows the finished page. Can you add grid layout to make your finished page look similar to Figure 7?
 
 Hints
-Add a div around all of the content elements (from header to footer), and give it the id “container”. 
+1.	Add a div around all of the content elements (from header to footer), and give it the id “container”.
+```
 <body>
 <div id="container">
 <header>…</header>
@@ -212,18 +230,19 @@ Add a div around all of the content elements (from header to footer), and give i
 <footer>…</footer>
 </div>
 </body>
+```
 	Then, add a new style to make the new div display as a grid
+ ```
 		#container{
 			Display: grid;
 		}
-Here are hints for row height setting
-First row - It should observe the height settings on the elements within it and automatically accommodate the content. 
-Second row- Make sure that the track will expand at least as much as necessary to fit the text. 
-Third row - a height of 5em should be sufficient to fit the few lines of text with a comfortable amount of space
-There are only two column tracks (main, hours sidebar), make sure that the main content be ensured that the text will never get narrower than 25em but it should be able to expand to fill the available space in the browser. 
-You can name the areas in your grid to place items in it easily and efficiently.
-
-Don’t forget to copy all files and save the file as “index.html” in the folder “part7”. Make sure you double check by accessing the link by yourself too.
+```
+2.	Here are hints for row height setting
+o	First row - It should observe the height settings on the elements within it and automatically accommodate the content. 
+o	Second row- Make sure that the track will expand at least as much as necessary to fit the text. 
+o	Third row - a height of 5em should be sufficient to fit the few lines of text with a comfortable amount of space
+o	There are only two column tracks (main, hours sidebar), make sure that the main content be ensured that the text will never get narrower than 25em but it should be able to expand to fill the available space in the browser. 
+o	You can name the areas in your grid to place items in it easily and efficiently.
 
 ![image](https://github.com/Shibaura-WebDesign-2024/Assignment-3/assets/167287319/559bb616-fa9b-4d62-8e27-9e0cd25359fc)
 Figure 7: The finished version of part 7, black goose bakery page with a two-column grid layout
