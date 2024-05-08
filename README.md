@@ -2,7 +2,7 @@
 
 ## Part 1 Styling text
 
-Download menu.html from GitHub Classroom. This is an online menu.
+Download menu.html from the material folder. This is an online menu.
 I have added some styles in the head section. There are a few styles needed to be added. The final decorated one should look similar to Fig. 1. 
 
 Can you try to fill in the missing styles? 
