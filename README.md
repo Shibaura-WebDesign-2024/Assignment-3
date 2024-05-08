@@ -1,6 +1,6 @@
 # Styling with CSS 
 
-## Part 1 Styling text
+## Styling text
 
 Download menu.html from the material folder. This is an online menu.
 I have added some styles in the head section. There are a few styles needed to be added. The final decorated one should look similar to Fig. 1. 
@@ -16,8 +16,6 @@ Don’t forget to save the file as “index.html” in the folder “part1”. M
 ![image](https://github.com/Shibaura-WebDesign-2024/Assignment-3/assets/167287319/eafb9a30-3991-487f-8b6d-7c8af2358127)
 
 
-
-## Part 2
 ## Colors and links 
 ## 2-A Adding colors and a background image to your page
 Now, let’s give your menu a little personality with foreground and background image.
@@ -41,7 +39,6 @@ Make sure that all of your link pseudo-classes are in the correct order.
 
 Don’t forget to save the file as “index.html” in the folder “part2”. Make sure you double check by accessing the link by yourself too.
 
-## Part 3
 ## Decorating timetable 
 Use your timetable that you created in the previous class. Please add some style to decorate the table. You are free to design. Please try to also play with adding the background image or patterns and manipulate the opacity, position, etc. 
 
@@ -65,24 +62,28 @@ https://www.flaticon.com/
 ### Make your own background
 http://patternizer.com/izfa
 
-## Part 4
 ## Flexbox starter
 
 
 Note: Be sure to use one of the Flexbox-supporting browsers
 1. Open bakery-styles.css in a text editor and start by making the ul element in the nav element as neutral as possible:
+```
 nav ul {
 margin: 0;
 padding: 0;
 list-style-type: none;
 }
+```
 2. Turn that ul element into a flexbox by setting its display to flex. As a result, all of the li elements become flex items. Because we want rows and no wrapping, the default values for flex-direction and flex-wrap are fine, so the properties can be omitted:
+```
 nav ul {
 …
 display: flex;
 }
-3. Save the document and look at it in a browser. You should see that the links are lined up tightly in a row, which is an improvement, but we have more work to do.
-4. Now we can work on the appearance of the links. Start by making the a elements in the nav list items display as block elements instead of inline. Give them 1px rounded borders, padding within the borders (.5em top and bottom, 1em left and right), and .5em margins to give them space and to open up the brown navigation bar.
+```
+4. Save the document and look at it in a browser. You should see that the links are lined up tightly in a row, which is an improvement, but we have more work to do.
+5. Now we can work on the appearance of the links. Start by making the a elements in the nav list items display as block elements instead of inline. Give them 1px rounded borders, padding within the borders (.5em top and bottom, 1em left and right), and .5em margins to give them space and to open up the brown navigation bar.
+```
 nav ul li a {
 display: block;
 border: 1px solid;
@@ -90,13 +91,15 @@ border-radius: .5em;
 padding: .5em 1em;
 margin: .5em;
 }
-5. We want the navigation menu to be centered in the width of the nav section. Add the following declaration for the nav ul element:
+```
+7. We want the navigation menu to be centered in the width of the nav section. Add the following declaration for the nav ul element:
+```
 nav ul {
 …
 display: flex;
 justify-content: center;
 }
-
+```
 Don’t forget to copy all files and save the file as “index.html” in the folder “part4”. Make sure you double check by accessing the link by yourself too.
 
 Figure 3 shows the way your navigation menu should look when you are finished.
@@ -104,7 +107,6 @@ Figure 3 shows the way your navigation menu should look when you are finished.
 ![image](https://github.com/Shibaura-WebDesign-2024/Assignment-3/assets/167287319/03eaa637-bbec-4443-ac23-7714f8181ab0)
 
 
-## Part 5
 ## A Flexible online menu
 
 Open index.html Can you try to make a flexible online menu just like Figure 4?
@@ -123,36 +125,41 @@ order: -1;
  ![image](https://github.com/Shibaura-WebDesign-2024/Assignment-3/assets/167287319/3e97c98e-9646-427d-b054-40f0d16a7365)
 
 
-## Part 6
 ## Grid starter
 
 Open index.html Figure 5 shows the grid layout of the final version of this page. Can you try to make a flexible online menu just like Figure 6?
 1. Start by turning the containing element, the #layout div, into a grid container by setting its display mode to “grid”:
+```
 #layout {
 …
 display: grid;
 }
-2. Figure 5 shows the row and column tracks required to accommodate the content in the desired layout. Start by defining the rows as specified in the sketch, using the grid-template-rows property. There should be six values, representing each of the six rows. 
+```
+3. Figure 5 shows the row and column tracks required to accommodate the content in the desired layout. Start by defining the rows as specified in the sketch, using the grid-template-rows property. There should be six values, representing each of the six rows.
+```
 #layout {
 …
 display: grid;
 grid-template-rows: 3em 20px 150px 300px 5em;
 }
-3. Do the same for the seven columns. Make the column grow and shrink with the available space by specified its width in fractional units (1fr). The remaining columns create 150px-wide cells for three images and 20px of space before them. You can use repeat () function to repeat the spaces and figure columns three times like this:
+```
+5. Do the same for the seven columns. Make the column grow and shrink with the available space by specified its width in fractional units (1fr). The remaining columns create 150px-wide cells for three images and 20px of space before them. You can use repeat () function to repeat the spaces and figure columns three times like this:
 grid-template-columns: 1fr repeat(3, 20px 150px);
-4. Finally, let’s assign names to the grid lines that border the grid area where the main content element should appear. The names give us some intuitive options for placing that item later. The main area starts at the third row track, so assign the name “mainstart” to the grid line between the second and third row track measurements:
+6. Finally, let’s assign names to the grid lines that border the grid area where the main content element should appear. The names give us some intuitive options for placing that item later. The main area starts at the third row track, so assign the name “mainstart” to the grid line between the second and third row track measurements:
 grid-template-rows: 3em 20px [main-start] 150px 300px 5em;
-5. The main area extends into the last row track, so assign the name “main-end” to the last grid line in the grid (after the last row track):
+7. The main area extends into the last row track, so assign the name “main-end” to the last grid line in the grid (after the last row track):
 grid-template-rows: 3em 20px [main-start] 150px 300px 5em [main-end];
-6. Do the same for the grid lines that mark the boundaries of the column track where the main content goes:
+8. Do the same for the grid lines that mark the boundaries of the column track where the main content goes:
 grid-template-columns: [main-start] 1fr [main-end] repeat(3, 20px 150px);
-7. Now, let’s place the items on the grid. Start by placing the nav element into the first row of the grid, using the four grid line properties:
+9. Now, let’s place the items on the grid. Start by placing the nav element into the first row of the grid, using the four grid line properties:
+```
 nav {
 grid-row-start: 1;
 grid-row-end: 2;
 grid-column-start: 1;
 grid-column-end: 8; /* you could also use -1 */
 }
+```
 Place the figures in their positions on the grid. Start by putting the third figure (#figC) in its place in the far-right column by using the shorthand grid-row and grid-column properties. It goes between the 3rd and 4th row grid lines and extends from the 7th to 8th column lines. For columns, instead of 7 and 8, use the negative value for the last line and span it one space to the left to get to the starting point:
 
 #figC {
