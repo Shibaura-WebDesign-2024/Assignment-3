@@ -11,8 +11,6 @@ Hint: all necessary elements are already created; you only need to write the dec
 
 Notice that we didn’t touch a single character of the document markup (HTML) in the process. That’s the beauty of keeping style separate from structure.
 
-Don’t forget to save the file as “index.html” in the folder “part1”. Make sure you double check by accessing the link by yourself too.
-
 ![image](https://github.com/Shibaura-WebDesign-2024/Assignment-3/assets/167287319/eafb9a30-3991-487f-8b6d-7c8af2358127)
 
 
@@ -37,12 +35,8 @@ I’ve already added a rule that turns underlines off under links (text-decorati
 
 Make sure that all of your link pseudo-classes are in the correct order.
 
-Don’t forget to save the file as “index.html” in the folder “part2”. Make sure you double check by accessing the link by yourself too.
-
 ## Decorating timetable 
 Use your timetable that you created in the previous class. Please add some style to decorate the table. You are free to design. Please try to also play with adding the background image or patterns and manipulate the opacity, position, etc. 
-
-Don’t forget to save the file as “index.html” in the folder “part3”. Make sure you double check by accessing the link by yourself too.
 
 
 Hints: 
@@ -100,7 +94,6 @@ display: flex;
 justify-content: center;
 }
 ```
-Don’t forget to copy all files and save the file as “index.html” in the folder “part4”. Make sure you double check by accessing the link by yourself too.
 
 Figure 3 shows the way your navigation menu should look when you are finished.
 
@@ -122,7 +115,6 @@ Hint: you will need to turn the element that contain h2 and p into a nested flex
 order: -1;
 }
 ```
- Don’t forget to copy all files and save the file as “index.html” in the folder “part5”. Make sure you double check by accessing the link by yourself too.
 
  ![image](https://github.com/Shibaura-WebDesign-2024/Assignment-3/assets/167287319/3e97c98e-9646-427d-b054-40f0d16a7365)
 
@@ -207,7 +199,6 @@ grid-column: 3 / -1;
 }
 ```
 13. Try opening your finished file in the browser. When the browser is stretched, everything may looks fine. However, when you narrow the browser window, the text in the main element overflows its cell. Can you try to fix this? (Hint: it is something to do with measurement of the row in grid)
-Don’t forget to copy all files and save the file as “index.html” in the folder “part6”. Make sure you double check by accessing the link by yourself too.
 
 ![image](https://github.com/Shibaura-WebDesign-2024/Assignment-3/assets/167287319/032f077c-9001-4b76-a176-53adff94619a)
 
@@ -221,6 +212,7 @@ Now you can use your new grid skills to give it a two-column layout that would b
 
 Hints
 1.	Add a div around all of the content elements (from header to footer), and give it the id “container”.
+
 ```
 <body>
 <div id="container">
@@ -231,8 +223,8 @@ Hints
 </div>
 </body>
 ```
-	Then, add a new style to make the new div display as a grid
- ```
+Then, add a new style to make the new div display as a grid
+```
 		#container{
 			Display: grid;
 		}
